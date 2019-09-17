@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Bird Word Guessing Game</title>
+    
+<!--Favicon coding-->
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+
+<!--Links to Reset and Stylesheet-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+ 
+</head>
+
+<body>
+
+<h1>Bird Word Guessing Game</h1>
+
+
+<div>
+    <p>Press any letter to begin!</p>
+
+
+<br>
+Guess the Word:
+<!-- add current word from JS -->
+    <p id="blanks-for-letters-in-word"></p>
+<br>
+<br>
+Letters guessed:
+<p id="guessedLetters"></p>
+<br>
+<br>
+Guesses remaining:
+<!-- Tally guesses remaining here -->  
+    <p id="guessesRemaining"></p>
+<br>
+<br>
+
+Wins:
+<!-- Display tally of wins here -->
+    <p id="wins-text"></p>
+<br>
+<br>
+Losses:
+<!-- Display tally losses here -->
+    <p id="losses-text"></p>
+
+</div>
+
+
+<footer class="footer">
+      <small>&copy; 2019</small>
+            <br>
+       <small>Last updated: September 16, 2019 at 8:30 PM</small>
+</footer>
+
+
+<!-- Link to JavaScript file -->
+<script type="text/javascript" src="./assets/javascript/game.js"></script>
+
+</body>
+</html>
