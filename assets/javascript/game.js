@@ -64,16 +64,17 @@
         }
 
 
-//Function to check the key that was pressed NOT FINISHED WITH THIS... COULDN"T GET IT TO WORK.
-   function checkGuess(userGuess) {
-    //if letter is not in guessedLetters array then push the letter to the guessedLetters array
-    if (guessedLetters.indexOf(userGuess) === -1) {
-        guessedLetters.push(userGuess);
-    //if letter is in answer then replace the positioned "_" with the letter
-    } else { 
-      for (var i = 0; i < wordToGuess.length; i++) {
-          if (userGuess === wordToGuess[i]) {
-            answerArray[i] = letter;
+//Function to check the key that was pressed NOTE: NOT FINISHED WITH THIS... COULDN"T GET IT TO WORK.
+    function checkGuess(userGuess) {
+    //if letter is not already in guessedLetters array then push the letter to the guessedLetters array
+        if (guessedLetters.indexOf(userGuess) === -1) {
+            guessedLetters.push(userGuess);
+   
+        //if letter is in answer then replace the positioned "_" with the letter
+        } else { 
+             for (var i = 0; i < wordToGuess.length; i++) {
+              if (userGuess === wordToGuess[i]) {
+               answerArray[i] = letter;
                 } 
             }                
         }
