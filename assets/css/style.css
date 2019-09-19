@@ -1,9 +1,9 @@
 
 body {
   background-image: url(../images/strauss_bird_flightless_bird.jpg);
-  background-color: #d1d8dbcc;
+  background-color:#DADBDF;
   background-repeat: no-repeat;
-  background-size: 1000px;
+  background-size: 1020px;
 }
 
 h1 {
@@ -12,7 +12,16 @@ h1 {
   text-align: center;
   color: blue;
   margin: auto;
-  padding: 30px 30px;
+  padding-top: 20px;
+}
+
+h2 {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 28px;
+  text-align: center;
+  color: blue;
+  margin: auto;
+  padding-bottom: 30px;
 }
 
 p {
