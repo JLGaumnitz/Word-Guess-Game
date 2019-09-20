@@ -84,7 +84,8 @@ function checkLetters(letter) {
         var correctLetter = false;
         for (var i = 0; i <numberBlanks; i++) {
             if (currentWord[i] === letter) {
-                correctLetter = true;
+            correctLetter = true;
+            guessesLeft--;
             }
          }
     //Check the position of the correct letter in the word
@@ -98,7 +99,8 @@ function checkLetters(letter) {
     //If the letter is not part of the word
         else {
             if(!wrongLetters.includes(letter)) {
-            wrongLetters.push(letter);
+                wrongLetters.push(letter);
+                guessesLeft--;
                 console.log(answerDisplay);
             }
         } 
@@ -143,7 +145,6 @@ function roundComplete() {
 
         alert("So sorry! You are out of guesses. The correct word was '"+ currentWord +".' Let's play again, with a new bird word!");
 
-
         // Update losses in HTML
         document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
 
@@ -163,7 +164,6 @@ function roundComplete() {
 
 // Get user's input
     document.onkeyup = function(event) {
-        guessesLeft--;
         // Create variable to hold all the letter that have been guessed
         var lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
         console.log("You guessed the letter: " + lettersGuessed);

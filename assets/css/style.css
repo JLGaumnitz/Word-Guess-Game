@@ -60,4 +60,63 @@ h4{
     flex-shrink: 0;
   }
 
-  /* If time, add media queries if I get the game built and working */
+/* Media Queries */  /* @media screen max-widths: 980px, 768px and 640px */
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url(../images/strauss_bird_flightless_bird.jpg);
+    background-color:#D1D1D3;
+    background-repeat: no-repeat;
+    background-size: 768px;
+    background-position-x: center;
+    background-position-y: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  body {
+    background-image: url(../images/strauss_bird_flightless_bird.jpg);
+    background-color:#D1D1D3;
+    background-repeat: no-repeat;
+    background-size: 640px;
+    background-position-x: center;
+    background-position-y: 100%;
+  }
+}
+
+ @media screen and (max-width: 425px) {
+
+    body {
+      background-image: url(../images/strauss_bird_flightless_bird.jpg);
+      background-color:#D1D1D3;
+      background-repeat: no-repeat;
+      background-size: 425px;
+      background-position-x: center;
+      background-position-y: 100%;
+    }
+
+    p {
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+@media screen and (max-width: 320px) {
+
+      body {
+        background-image: url(../images/strauss_bird_flightless_bird.jpg);
+        background-color:#D1D1D3;
+        background-repeat: no-repeat;
+        background-size: 320px;
+        background-position-x: center;
+        background-position-y: 100%;
+      }
+  
+      p {
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 16px;
+        text-align: center;
+      }
+    }
