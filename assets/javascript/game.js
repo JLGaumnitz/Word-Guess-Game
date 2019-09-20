@@ -1,9 +1,4 @@
 
-// When the player wins, play a bird call and add 1 to the counter of Wins. Load the next word to guess and re-set the number of guesses and the letters guessed fields.
-
-// When the player loses, play a different bird call, display the correct answer, and add 1 to the counter of Losses. Load the next word to guess and re-set the number of guesses and the letters guessed fields.
-
-
 // DO I NEED TO INCLUDE A WAY FOR THE PLAYER TO QUIT THE GAME AT ANY POINT?
 
 
@@ -13,7 +8,7 @@
 
 // Array of all possible bird names to guess
 
-var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan", "bluebird", "hummingbird", "ostrich", "pigeon", "dove", "heron", "toucan", "meadowlark", "pelican", "wren","emu", "chicken", "robin"];
+var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan", "bluebird", "hummingbird", "ostrich", "pigeon", "dove", "heron", "toucan", "meadowlark", "pelican", "wren","emu", "chicken", "robin", "puffin", "albatross", "parrot", "penguin", "sparrow", "bunting", "chickadee", "falcon", "grouse", "kiwi", "magpie", "osprey", "peacock"];
 
 // Empty variable to store the current word, to be guessed as a string
     var currentWord = "";
@@ -22,7 +17,7 @@ var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan",
     var currentWordLetters = [];
 
 // Variable that holds the number of blanks "_" in the currentWord
-    var numBlanks = 0;
+    var numberBlanks = 0;
 
 // Empty array to store the answer as it displays for the user
     var answerDisplay = []
@@ -36,8 +31,8 @@ var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan",
     var guessesLeft = 15;
 
 // Variable for audio to play for win or loss
-var winAudio = new Audio('./assets/audio/meadowlark_daniel-simion.mp3');
-var loseAudio = new Audio('./assets/audio/Crow_Call_2-JimBob-1215724899.mp3');
+    var winAudio = new Audio('./assets/audio/meadowlark_daniel-simion.mp3');
+    var loseAudio = new Audio('./assets/audio/Crow_Call_2-JimBob-1215724899.mp3');
 
 // =============================================================
 // FUNCTIONS
@@ -55,8 +50,8 @@ function newGame () {
             console.log("The current word's letters are: " + currentWordLetters);
 
     //Set the number of blanks to display based on the number of letters in the current word;
-        numBlanks = currentWordLetters.length;
-            console.log("The number of letters in the current word is: " + numBlanks);
+        numberBlanks = currentWordLetters.length;
+            console.log("The number of letters in the current word is: " + numberBlanks);
 
     // Reset the game variables
         guessesLeft = 15;
@@ -64,7 +59,7 @@ function newGame () {
         answerDisplay = []
 
     // Add the correct number of blanks to the answerDisplay that correspond to the length of the currentWord
-        for (i = 0; i <numBlanks; i++) {
+        for (i = 0; i <numberBlanks; i++) {
             answerDisplay.push("_");
             console.log(answerDisplay);
             }
@@ -74,29 +69,28 @@ function newGame () {
         document.getElementById("remainingGuesses").innerHTML = guessesLeft;
         document.getElementById("wins").innerHTML = wins;
         document.getElementById("losses").innerHTML = losses;
-// stops audio if it's playing.
+
+    // Stops audio if it is still playing from last game
         winAudio.pause();
         winAudio.currentTime=0;
         loseAudio.pause();
         loseAudio.currentTime=0;
     }
 
-// Check whether user's input is an actual letter; if it IS a letter, then run the comparison against the current word
+// Function to check whether user's input is an actual letter; if it IS a letter, then run the comparison against the current word
 function checkLetters(letter) {
         
     if (event.keyCode >= 65 && event.keyCode <= 90) {
-
-            var correctLetter = false;
-
-        for (var i = 0; i <numBlanks; i++) {
+        var correctLetter = false;
+        for (var i = 0; i <numberBlanks; i++) {
             if (currentWord[i] === letter) {
                 correctLetter = true;
-                guessesLeft--;
+            // guessesLeft--;  <<This is the counter for correct guesses
             }
          }
     //Check the position of the correct letter in the word
         if(correctLetter) {
-            for (var i = 0; i <numBlanks; i++) {
+            for (var i = 0; i <numberBlanks; i++) {
             if(currentWord[i] === letter) {
                 answerDisplay[i] = letter;
                 }
@@ -134,7 +128,6 @@ function roundComplete() {
         winAudio.play();
 
         alert("Congratulations! You guessed " + "'" + currentWord + "'" + " correctly. Let's play again!");
-        // console.log("You won!");
     
     // Update wins in HTML
     document.getElementById("wins").innerHTML = wins;
@@ -150,8 +143,8 @@ function roundComplete() {
         losses++;
         loseAudio.play();
 
-        alert("So sorry! You are out of guesses. The correct word was '"+ currentWord +".' Let's play again, with a new bird word!")
-        // console.log("You lost!");
+        alert("So sorry! You are out of guesses. The correct word was '"+ currentWord +".' Let's play again, with a new bird word!");
+
 
         // Update losses in HTML
         document.getElementById("losses").innerHTML = "Losses: " + " " + losses;
@@ -160,26 +153,25 @@ function roundComplete() {
     newGame()
 
     document.getElementById("guessedLetters").innerHTML = " ";
-
     }
 }
+
 // =============================================================
 // GAME PROCESS
 // =============================================================
 
 // Call function to start the game the first time
-newGame()
+    newGame()
 
 // Get user's input
-document.onkeyup = function(event) {
-
-    // Create variable to hold all the letter that have been guessed
-    var lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
+    document.onkeyup = function(event) {
+        // Create variable to hold all the letter that have been guessed
+        var lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
         console.log("You guessed the letter: " + lettersGuessed);
     
-// Call the check letters function
- checkLetters(lettersGuessed);
+// Call the checkLetters function
+    checkLetters(lettersGuessed);
 
-// Call the roundComplete function
-roundComplete();
-}
+ // Call the roundComplete function
+    roundComplete();
+    }
