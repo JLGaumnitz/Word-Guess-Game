@@ -85,7 +85,6 @@ function checkLetters(letter) {
         for (var i = 0; i <numberBlanks; i++) {
             if (currentWord[i] === letter) {
                 correctLetter = true;
-            // guessesLeft--;  <<This is the counter for correct guesses
             }
          }
     //Check the position of the correct letter in the word
@@ -100,7 +99,6 @@ function checkLetters(letter) {
         else {
             if(!wrongLetters.includes(letter)) {
             wrongLetters.push(letter);
-            guessesLeft--;
                 console.log(answerDisplay);
             }
         } 
@@ -165,6 +163,7 @@ function roundComplete() {
 
 // Get user's input
     document.onkeyup = function(event) {
+        guessesLeft--;
         // Create variable to hold all the letter that have been guessed
         var lettersGuessed = String.fromCharCode(event.keyCode).toLowerCase();
         console.log("You guessed the letter: " + lettersGuessed);
