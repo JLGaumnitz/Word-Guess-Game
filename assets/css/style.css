@@ -3,7 +3,8 @@ body {
   background-image: url(../images/strauss_bird_flightless_bird.jpg);
   background-color:#DADBDF;
   background-repeat: no-repeat;
-  background-size: 1020px;
+  background-size: 1024px;
+  background-position-x: center;
 }
 
 h1 {
