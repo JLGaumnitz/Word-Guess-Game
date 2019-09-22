@@ -13,7 +13,7 @@ h1 {
   text-align: center;
   color: blue;
   margin: auto;
-  padding-top: 20px;
+  padding-top: 10px;
 }
 
 h2 {
@@ -60,7 +60,7 @@ h4{
     flex-shrink: 0;
   }
 
-/* Media Queries */  /* @media screen max-widths: 980px, 768px and 640px */
+/* Media Queries */  /* for smaller screens but still may have  keyboards */
 
 @media screen and (max-width: 768px) {
   body {
@@ -102,21 +102,3 @@ h4{
       text-align: center;
     }
   }
-
-@media screen and (max-width: 320px) {
-
-      body {
-        background-image: url(../images/strauss_bird_flightless_bird.jpg);
-        background-color:#D1D1D3;
-        background-repeat: no-repeat;
-        background-size: 320px;
-        background-position-x: center;
-        background-position-y: 100%;
-      }
-  
-      p {
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 16px;
-        text-align: center;
-      }
-    }

@@ -1,16 +1,13 @@
 
-// DO I NEED TO INCLUDE A WAY FOR THE PLAYER TO QUIT THE GAME AT ANY POINT?
-
-
 // =============================================================
 // DEFINITION OF VARIABLES
 // =============================================================
 
-// Array of all possible bird names to guess
+// Array of bird names to guess
 
-var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan", "bluebird", "hummingbird", "ostrich", "pigeon", "dove", "heron", "toucan", "meadowlark", "pelican", "wren","emu", "chicken", "robin", "puffin", "albatross", "parrot", "penguin", "sparrow", "bunting", "chickadee", "falcon", "grouse", "kiwi", "magpie", "osprey", "peacock"];
+var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan", "bluebird", "hummingbird", "ostrich", "pigeon", "dove", "heron", "toucan", "meadowlark", "pelican", "wren","emu", "chicken", "robin", "puffin", "albatross", "parrot", "penguin", "sparrow", "bunting", "chickadee", "falcon", "grouse", "kiwi", "magpie", "osprey", "peacock", "turkey"];
 
-// Empty variable to store the current word, to be guessed as a string
+// Empty variable to store the current word
     var currentWord = "";
 
 // Empty array to hold the letters in the currentWord
@@ -19,10 +16,10 @@ var birdNames = ["owl", "hawk", "parakeet", "crane", "vulture", "eagle", "swan",
 // Variable that holds the number of blanks "_" in the currentWord
     var numberBlanks = 0;
 
-// Empty array to store the answer as it displays for the user
+// Empty array to store the answer
     var answerDisplay = []
 
-// Empty array to hold the wrong guess and display to userGuess
+// Empty array to hold the wrong guesses 
     var wrongLetters = [];
 
 // Game Stat Variables 
@@ -47,13 +44,13 @@ function newGame () {
     
     //Break currentWord into individual letters 
         currentWordLetters = currentWord.split("");
-            console.log("The current word's letters are: " + currentWordLetters);
+            // console.log("The current word's letters are: " + currentWordLetters);
 
     //Set the number of blanks to display based on the number of letters in the current word;
         numberBlanks = currentWordLetters.length;
             console.log("The number of letters in the current word is: " + numberBlanks);
 
-    // Reset the game variables
+    // Reset game variables
         guessesLeft = 15;
         wrongLetters = [];
         answerDisplay = []
@@ -61,7 +58,7 @@ function newGame () {
     // Add the correct number of blanks to the answerDisplay that correspond to the length of the currentWord
         for (i = 0; i <numberBlanks; i++) {
             answerDisplay.push("_");
-            console.log(answerDisplay);
+            // console.log(answerDisplay);
             }
         
      // Update HTML elements to display current information
@@ -70,14 +67,14 @@ function newGame () {
         document.getElementById("wins").innerHTML = wins;
         document.getElementById("losses").innerHTML = losses;
 
-    // Stops audio if it is still playing from last game
+    // Stops audio if still playing
         winAudio.pause();
         winAudio.currentTime=0;
         loseAudio.pause();
         loseAudio.currentTime=0;
     }
 
-// Function to check whether user's input is an actual letter; if it IS a letter, then run the comparison against the current word
+// Function to check whether user's input is a letter; if a letter, run the comparison against the current word
 function checkLetters(letter) {
         
     if (event.keyCode >= 65 && event.keyCode <= 90) {
@@ -85,7 +82,6 @@ function checkLetters(letter) {
         for (var i = 0; i <numberBlanks; i++) {
             if (currentWord[i] === letter) {
             correctLetter = true;
-            guessesLeft--;
             }
          }
     //Check the position of the correct letter in the word
@@ -100,10 +96,10 @@ function checkLetters(letter) {
         else {
             if(!wrongLetters.includes(letter)) {
                 wrongLetters.push(letter);
-                guessesLeft--;
                 console.log(answerDisplay);
             }
         } 
+        guessesLeft--;
     }
 
     // If the user input is NOT a letter, alert the user
